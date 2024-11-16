@@ -43,7 +43,7 @@ A continuación se presentan las principales formas normales:
 -  Tercera Forma Normal: No existen dependencias transitivas entre atributos dependientes.
 -  Forma Normal Boyce-Codd: Todo determinante debe ser llave.
 
-## Práctica 5: Creación de la base de datos de un hospital
+## Práctica 5: Creación de la base de datos de un hospital DDL e Integridad
 En esta práctica se crearon las tablas anteriormente creadas en las prácticas anteriores y ya normalizadas. 
 
 ```sql
