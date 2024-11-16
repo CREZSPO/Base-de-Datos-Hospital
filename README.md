@@ -85,3 +85,23 @@ CREATE TABLE persona(
 );
 ```
 entre demás tablas, nuevamente todas las tablas están en el archivo de práctica 5
+
+```sql
+ALTER TABLE cestado
+ADD CONSTRAINT pk_cestado PRIMARY KEY (id_estado);
+
+ALTER TABLE cestado
+ALTER COLUMN estado SET NOT NULL;
+
+ALTER TABLE cmunicipio
+ADD CONSTRAINT pk_cmunicipio PRIMARY KEY (id_municipio),
+ADD FOREIGN KEY (id_estado) REFERENCES cestado(id_estado);
+
+ALTER TABLE cmunicipio
+ALTER COLUMN municipio SET NOT NULL,
+ALTER COLUMN id_estado SET NOT NULL;
+
+ALTER TABLE direccion
+ADD CONSTRAINT pk_direccion PRIMARY KEY (id_direccion),
+ADD FOREIGN KEY (id_municipio) REFERENCES cmunicipio(id_municipio);
+```
