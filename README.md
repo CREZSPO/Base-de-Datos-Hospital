@@ -33,3 +33,55 @@ Los diagramas de Clases UML ofrecen más información para la creación de la ba
 <img width="295" alt="BD_2" src="https://github.com/user-attachments/assets/47d5dc09-c8d8-461a-b74f-ac165fd2fb10">
 
 ![image](https://github.com/user-attachments/assets/c4b950dc-4ff4-4a5d-93c2-dcce98b4fc85)
+
+## Práctica 4: Normalización
+Las bases de datos pueden modelarse a través de diversos diseños debido a la complejidad del contexto o a la experiencia del diseñador. Esto nos llevará a encontrar maneras distintas de ordenar los datos y las tablas que formarán parte de una base de datos.
+El creador del modelo relacional, Edgar F. Codd, estableció una serie de reglas para las bases de datos con el propósito de que los modelos relacionales resultantes fueran eficientes. Estas reglas se ocupan de mantener la calidad organizacional de los datos y las tablas, mediante una estructura abstracta que se puede aplicar de manera universal a cualquier modelo relacional. A éstas reglas se les llama "Reglas de Codd"
+A continuación se presentan las principales formas normales:
+-  Primera Forma Normal: Todos los atributos deben ser atómicos.
+-  Segunda Forma Normal: Todo atributo dependiente lo define el atributo determinante.
+-  Tercera Forma Normal: No existen dependencias transitivas entre atributos dependientes.
+-  Forma Normal Boyce-Codd: Todo determinante debe ser llave.
+
+## Práctica 5: Creación de la base de datos de un hospital
+En esta práctica se crearon las tablas anteriormente creadas en las prácticas anteriores y ya normalizadas. 
+
+```sql
+CREATE TABLE cestado(
+    id_estado                   SERIAL,
+    estado                      VARCHAR(20)
+);
+
+CREATE TABLE cmunicipio(
+    id_municipio                SERIAL,
+    municipio                   VARCHAR(30),
+    id_estado                   INTEGER
+);
+
+CREATE TABLE direccion(
+    id_direccion                SERIAL,
+    calle                       VARCHAR(30),
+    cpostal                     VARCHAR(5),
+    numerocalle                 INTEGER,
+    id_municipio                INTEGER
+
+);
+
+CREATE TABLE cgenero(
+    id_genero                   SERIAL,
+    etiqueta                    VARCHAR(20)
+);
+
+CREATE TABLE persona(
+    id_persona                  SERIAL,
+    nombre                      VARCHAR(30),
+    paterno                     VARCHAR(30),
+    materno                     VARCHAR(30),
+    correo                      VARCHAR(40),
+    nacimiento                  DATE,
+    telefono                    VARCHAR(10),
+    id_genero                   INTEGER,
+    id_direccion                INTEGER
+);
+```
+entre demás tablas, nuevamente todas las tablas están en el archivo de práctica 5
