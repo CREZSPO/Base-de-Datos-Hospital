@@ -105,3 +105,8 @@ ALTER TABLE direccion
 ADD CONSTRAINT pk_direccion PRIMARY KEY (id_direccion),
 ADD FOREIGN KEY (id_municipio) REFERENCES cmunicipio(id_municipio);
 ```
+
+## Práctica 6: Lenguaje de Manipulación de Datos (DML)
+
+
+
